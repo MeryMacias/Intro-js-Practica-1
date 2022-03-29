@@ -1,7 +1,12 @@
 /*******colors********************/
 
+/*********Background**************/
+.banner-l1{background-color:#00dcc6 !important; color:#fff !important;}
+/******************************/
+
 /*********Text**************/
-.banner-l1{color:#ced4da !important;}
+.text-l1{color:#ced4da !important;}
+
 /******************************/
 
 /*******buttons*****************/
