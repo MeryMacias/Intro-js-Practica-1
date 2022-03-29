@@ -90,3 +90,36 @@ console.log ("terminando el loop");
 switch (1){
     case
 }
+
+
+
+var frutas = ["Pera", "Manzana", "Paltano", "Uvas"];
+console.log(frutas.length);
+frutas.push("Mandarina");
+
+frutas.pop();
+frutas;
+
+var animals = ["eagle", "parrot", "monkey", "boar", "lion"];
+var comingSoonAnimals = ["panther", "dragon", "turtle"];
+
+var newAnimals = animals.concat(comingSoonAnimals);
+console.log(newAnimals);
+
+//////////////////
+
+var arr = [4, 6, 1, 0, 8, 2];
+arr.sort(function (a, b) {
+  return a - b;
+});
+console.log(arr);
+
+//////////////////
+
+animals.push("cow");
+console.log(animals);
+
+//////////////////
+
+animals.splice(animals.indexOf("eagle"), 1);
+console.log(animals);
