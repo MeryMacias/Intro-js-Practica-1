@@ -17,6 +17,7 @@
         <div class="login">
         <div class="form-signin text-center">
                 <h1 class="h3 mb-3 fw-normal text-l1">BIENVENIDO</h1>
+                <p id="error" class="mb-3 text-danger" hidden="true">Numero de cuenta y/o password invalidos</p>
                 <div class="form-float">
                     <input id="numero" type="text" class="form-control input-round" placeholder="Numero de cuenta" />
                 </div>
@@ -27,19 +28,20 @@
         </div>
     </div>    
     </body>    
-    <script>            
-        function validate(){
-            alert("click");
-            let num = document.getElementById("numero");
-            let pass = document.getElementById("password");
+    <script type="text/javascript">            
+        function validate(){            
+          let num = document.getElementById("numero").value;
+          let pass = document.getElementById("password").value;
 
-            console.log(num);
-            console.log(pass);
-
-            if(validLogin(num,pass))
-                window.location.href = "main.html";
-            else
-                alert("Numero de cuenta o password invalidos");                
-        };        
-</script>
+          console.log(num);
+          console.log(pass);
+                  
+          if(validLogin(num,pass)){            
+              window.location.href = "main.html?num=" + num;
+          }
+          else{              
+              document.getElementById("error").hidden=false;
+          }                
+      };        
+    </script>
 </html>

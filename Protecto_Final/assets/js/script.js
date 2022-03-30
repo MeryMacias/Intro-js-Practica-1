@@ -4,6 +4,9 @@ var cuentas = [
     { nombre: "Jair", saldo: 67 ,numerocuenta:"54893", password: "12345"},
   ];
 
+const urlParams = new URLSearchParams(window.location.search);
+const numerocuenta = urlParams.get('num');
+
 function validLogin(num, pass){
     if(num == null || num == "" || num === undefined)
         return false;
@@ -11,11 +14,21 @@ function validLogin(num, pass){
     if(pass == null || pass == "" || pass === undefined)
         return false;
 
-    for(let index = 0; index < cuentas.length; index){
+    for(let index = 0; index < cuentas.length; index++){
         let item = cuentas[index];
         if(item.numerocuenta == num && item.password == pass)
             return true;
     }
     
     return false;
+}
+
+function getCurentUser(){
+    for(let index = 0; index < cuentas.length; index++){
+        let item = cuentas[index];
+        if(item.numerocuenta == numerocuenta)
+            return item;
+    }
+    
+    return null;
 }
