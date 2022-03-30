@@ -3,9 +3,9 @@
     align-items: center;
     padding-top: 40px;
     padding-bottom: 40px;    
-    min-height: 800px;
+    
 }
-
+.main,
 .form-signin{
     width: 100%;
     max-width: 500px;

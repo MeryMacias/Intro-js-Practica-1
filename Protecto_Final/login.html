@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="assets/css/main.css"> 
         <link rel="stylesheet" href="assets/css/theme.css"> 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>        
+        <script src="assets/js/script.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-light bg-light banner-l1">
@@ -17,13 +18,28 @@
         <div class="form-signin text-center">
                 <h1 class="h3 mb-3 fw-normal text-l1">BIENVENIDO</h1>
                 <div class="form-float">
-                    <input type="text" class="form-control input-round" placeholder="Numero de cuenta" />
+                    <input id="numero" type="text" class="form-control input-round" placeholder="Numero de cuenta" />
                 </div>
                 <div class="form-float">
-                    <input type="password" class="form-control input-round" placeholder="Contraseña" />
+                    <input id="password" type="password" class="form-control input-round" placeholder="Password" />
                 </div>
-                <button class="w-100 btn btn-lg btn-primary btn-l1-teal">Ingresar</button>
+                <input id="submit" onclick="validate();" value="Ingresar" type="button" class="w-100 btn btn-lg btn-primary btn-l1-teal btn-round" />
         </div>
-    </div>
+    </div>    
     </body>    
+    <script>            
+        function validate(){
+            alert("click");
+            let num = document.getElementById("numero");
+            let pass = document.getElementById("password");
+
+            console.log(num);
+            console.log(pass);
+
+            if(validLogin(num,pass))
+                window.location.href = "main.html";
+            else
+                alert("Numero de cuenta o password invalidos");                
+        };        
+</script>
 </html>

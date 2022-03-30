@@ -5,19 +5,32 @@
 /******************************/
 
 /*********Text**************/
-.text-l1{color:#ced4da !important;}
+.text-l1{color:#a0a0a0 !important;}
 
 /******************************/
 
 /*******buttons*****************/
-.btn-l1-teal {color:#fff !important; background-color:#00dcc6 !important; border-radius: 20px;}
+.btn-l1-teal {color:#fff !important; background-color:#00dcc6 !important;}
+.btn-secondary {
+    color:#000 !important; background-color:#e9fffd !important;
+    
+}
 /********************************/
 
 /*********controls**************/
+.btn-round,
 .input-round{
     border-radius:20px;
     margin-bottom: 10px;    
-    font-size: 1.5em !important;
-    color:#ced4da !important;
+    font-size: 1em;
+    border-color: #009688  !important;
+}
+
+.input-calculator{
+    font-size: 1.3em;
+    text-align: right;
+}
+.btn-calculator{
+    font-size: 1.5em;
 }
 /******************************/
