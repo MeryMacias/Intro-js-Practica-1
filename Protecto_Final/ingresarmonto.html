@@ -20,9 +20,10 @@
             </div>
             
         </nav>
-        <div class="main mt-5">
+        <div class="main">
         <div class="container">
-          <h2 class="text-center h3 mb-3 fw-normal text-l1">Ingrese el monto a depositar</h2>
+            <h2 class="text-center h3 mb-3 fw-normal text-l1">Ingrese el monto a depositar</h2>
+            <p class="text-center text-l1"><small>Solo puede depositar como maximo $900 y un minimo de $2</small></p>
             <div class="row mb-3 justify-content-md-center">                
                   <div class="col col-md-auto">
                       <input type="text" name="" id="monto" class="form-control input-round input-calculator">
@@ -61,9 +62,9 @@
                     <button class="btn btn-primary btn-l1-teal btn-calculator">3</button>
                   </div>
               </div>
-              <div class="row mb-3 justify-content-md-center">
+              <div class="row justify-content-md-center">
                 <div class="col col-lg-2">
-                    <button class="btn btn-primary btn-l1-teal btn-calculator" >..</button>
+                    <button class="btn btn-primary btn-l1-teal btn-calculator">.</button>
                   </div>
                   <div class="col col-lg-2">
                     <button class="btn btn-primary btn-l1-teal btn-calculator">0</button>
@@ -96,7 +97,7 @@
                 </button>
                 </li>     
                 <li class="ms-3">
-                    <a class="w-100 btn btn-primary btn-l1-teal btn-round" href= "saldoactual.html">                        
+                    <button onclick="depositar()" class="w-100 btn btn-primary btn-l1-teal btn-round">                        
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Continuar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </a>
                 </li>                 
@@ -115,6 +116,15 @@
       }
 
       function bind(){
+        document.getElementById("monto").addEventListener("change",function(e){
+            let monto = e.target.value;
+            console.log(monto);
+            if(isNaN(parseFloat(monto))){
+              e.target.value = "";
+            }else{
+              e.target.value = parseFloat(monto);          
+            }
+        });
         var buttons = document.getElementsByClassName("btn-calculator");
         console.log(buttons);
         
@@ -128,9 +138,32 @@
       }      
 
       function ingresarmonto(val){
-        document.getElementById("monto").value += val;
-
+        let monto = document.getElementById("monto");        
+        val = val.trim();
+        if(val == "."){
+          console.log(monto.value.indexOf("."));
+          if(monto.value.indexOf(".") < 0){
+              monto.value += val;
+          }
+        }else if(val == "X"){
+          monto.value = "";
+        }
+        else{
+            monto.value += val;
+        }
       }
   
+      function depositar(){
+        let monto = document.getElementById("monto");
+        let deposito = parseFloat(monto.value);
+
+        console.log(deposito);
+
+        if(deposito >= 900 || deposito <= 1){
+          alert("Monto invalido");
+        }else{
+          window.location.href = "saldoactual.html?num=" + user.numerocuenta + "&deposito=" + deposito;
+        }
+      }
 </script>      
 </html>
