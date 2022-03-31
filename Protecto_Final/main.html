@@ -27,9 +27,9 @@
                 </div>
                 <div>
                   <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Consultar Saldo</font></font></h2>                  
-                  <a href="consultarsaldo.html" class="btn btn-primary btn-l1-teal btn-round"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                  <button onclick="consultarsaldo()" class="btn btn-primary btn-l1-teal btn-round"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                     Continuar
-                  </font></font></a>
+                  </font></font></button>
                 </div>
               </div>
               <div class="col d-flex align-items-start">
@@ -38,9 +38,9 @@
                 </div>
                 <div>
                   <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ingresar monto</font></font></h2>
-                  <a href="ingresarmonto.html" class="btn btn-primary btn-l1-teal btn-round"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                  <button onclick="ingresarmonto()" class="btn btn-primary btn-l1-teal btn-round"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                     Continuar
-                  </font></font></a>
+                  </font></font></button>
                 </div>
               </div>
               <div class="col d-flex align-items-start">
@@ -49,9 +49,9 @@
                 </div>
                 <div>
                   <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Retirar monto</font></font></h2>                  
-                  <a href="retirarmonto.html" class="btn btn-primary btn-l1-teal btn-round"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                  <button onclick="retirarmonto()" class="btn btn-primary btn-l1-teal btn-round"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                     Continuar
-                  </font></font></a>
+                  </font></font></button>
                 </div>
               </div>
             </div>
@@ -77,9 +77,18 @@
           </div>    
     </body>    
     <script type="text/javascript">                             
-          let user = getCurentUser();
+          var user = getCurentUser();
           console.log(user);
-          document.getElementById("user").textContent = user.nombre + " - " + user.numerocuenta;          
-      
+          document.getElementById("user").textContent = user.nombre + " - " + user.numerocuenta; 
+
+      function consultarsaldo(){
+        window.location.href = "consultarsaldo.html?num=" + user.numerocuenta;
+      }
+      function ingresarmonto(){
+        window.location.href = "ingresarmonto.html?num=" + user.numerocuenta;
+      }
+      function retirarmonto(){
+        window.location.href = "retirarmonto.html?num=" + user.numerocuenta;
+      }
     </script>
 </html>
